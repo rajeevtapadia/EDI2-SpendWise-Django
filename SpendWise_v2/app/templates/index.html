@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- <link href="assets/styles.css" rel="stylesheet"> -->
+  <title>SpendWise</title>
+</head>
+
+<body>
+<header>
+  <h1 class="title">SpendWise</h1>
+  <button type="submit" class="login">Login</button>
+</header>
+<div class='center'>
+  <maincontent>
+    <!-- <img src="assets/banner.jpg" alt="banner" class="banner wide">
+    <img src="assets/banner mobile 2.jpg" alt="banner" class="banner mobile"> -->
+    <!-- <img src="assets/cashflow.jpg" alt="banner" class="banner mobile"> -->
+    <img src="{% static 'media/cashflow.jpg' %}" alt="banner" class="banner mobile">
+    <br><br><br><br><br><br><br><br>
+    <h3>Improve your<br>relationship with<br>money</h3>
+    <p>Enjoy effortless saving with<br>the friendly and 
+      flexible method<br>for managing your finances
+    </p>
+    <!-- <br><br><br><br> -->
+    <div class="signup-div">
+      <h2>Get Started Now</h2>
+      <button type="submit" class="signup btn">Sign Up</button>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <ul>
+        <li>Track and manage your expenses</li>
+        <li>Set limits and budget based on categories</li>
+        <li>Encourage responsible spending habits</li>
+      </ul>
+    </div>
+  </maincontent>
+
+  <table>
+    <tr>
+      <td>
+        <h4>Budgeting<br> that works</h4>
+      </td>
+      <td>
+        <img  src="{% static 'media/icn1.svg' %}" alt="Budgeting that actually works" 
+        loading="lazy">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="{% static 'media/icn3.svg' %}" alt="Save for big expenses with Goodbudget" 
+        loading="lazy">
+      </td>
+      <td>
+        <h4>Save for<br> big expenses</h4>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>Cutoff <br>expenses</h4>
+      </td>
+      <td>
+        <img src="{% static 'media/icn4.svg' %}"
+        alt="Pair of scissors cutting a credit card" loading="lazy" >
+      </td>
+    </tr>
+  </table>
+
+  
+  <section>
+    <hr>
+    <div>
+      <h2>Our Motive</h2>
+      <p>The motive of making this web app to track student expenses and sort
+        them category-wise, and set budgets accordingly is to empower students
+        with a tool that can help them manage their finances better. The app
+        aims to provide students with a clear understanding of their financial
+        situation, enabling them to make informed decisions about their spending.
+        By tracking their expenses and setting budgets, students can develop
+        responsible spending habits, avoid overspending, and save money.
+        Ultimately, the goal of the web app is to help students become
+        financially literate and independent, which will serve them well in
+        the long term.</p>
+      <hr>
+      <h2>About Us</h2>
+      <h3>An EDI project by S3</h3>
+    </div>
+  </section>
+</div>
+</body>
+
+</html>
