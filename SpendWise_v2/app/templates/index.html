@@ -16,13 +16,11 @@
 <body>
 <header>
   <h1 class="title">SpendWise</h1>
-  <button type="submit" class="login">Login</button>
+  <!-- <button type="submit" class="login"><a href="{% url 'login' %}">Login</a></button> -->
+  <a href="{% url 'login' %}" class="login">Login</a>
 </header>
 <div class='center'>
   <maincontent>
-    <!-- <img src="assets/banner.jpg" alt="banner" class="banner wide">
-    <img src="assets/banner mobile 2.jpg" alt="banner" class="banner mobile"> -->
-    <!-- <img src="assets/cashflow.jpg" alt="banner" class="banner mobile"> -->
     <img src="{% static 'media/cashflow.jpg' %}" alt="banner" class="banner mobile">
     <br><br><br><br><br><br><br><br>
     <h3>Improve your<br>relationship with<br>money</h3>
@@ -32,7 +30,8 @@
     <!-- <br><br><br><br> -->
     <div class="signup-div">
       <h2>Get Started Now</h2>
-      <button type="submit" class="signup btn">Sign Up</button>
+      <!-- <button type="submit" class="signup btn">Sign Up</button> -->
+      <a href="{% url 'signup' %}" class="signup btn">Sign Up</a>
     </div>
     <div>
       <h3>How it works</h3>
