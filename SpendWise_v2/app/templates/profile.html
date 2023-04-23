@@ -11,7 +11,9 @@
     <title>Profile Page</title>
   </head>
   <body>
-    <h1>Profile Page</h1>
+    {% csrf_token %}
+    <h1>Profile Page for {{usr}}</h1>
+
     <a href="{% url 'logout' %}" class="btn">Logout</a>
 
     <!-- Optional JavaScript -->

@@ -32,6 +32,6 @@ urlpatterns = [
     path('logout/', views.Logout, name='logout'),
 
     # profile page
-    path('profile/<str:pk', views.profile, name='profile')
+    path('profile/<str:pk>', views.profile, name='profile')
 
 ]

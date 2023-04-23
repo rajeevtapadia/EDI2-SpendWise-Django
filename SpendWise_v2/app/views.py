@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
+from django.views.decorators.cache import cache_control
 
 
 # Create your views here.
@@ -35,15 +36,14 @@ def Login(request):
     if request.method == 'POST':
         username = request.POST.get('usrnm')
         pass1 = request.POST.get('pass')
-
         user = authenticate(request, username = username, password = pass1)
         if user is not None:
             login(request, user)
-            return redirect('/home2')
+            return redirect('/profile/'+username)
         else:
             messages.info(request, 'Wrong Username or Password')
             return redirect('login')
-            # return HttpResponse('username or password is incorrect')
+
     return render(request, 'login.html', {})
 
 @login_required(login_url='login')
@@ -55,5 +55,9 @@ def Logout(request):
     logout(request)
     return redirect('home')
 
+@login_required(login_url='login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
-    return render(request, )
+    # usr = pk
+    return render(request, 'profile.html', {'usr': pk})
+    # return HttpResponse(usr)
