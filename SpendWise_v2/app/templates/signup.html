@@ -77,7 +77,7 @@ input{
     color: #646363;
 }
 button{
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
     width: 100%;
     background-color: #dce7f7;
@@ -120,6 +120,20 @@ button{
 
         <label for="password2">Confrom Password</label>
         <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+
+        <div>
+            <style>
+                h5{
+                    color: red;
+                    margin-bottom: 0;
+                    margin-top: 10px;
+                }
+            </style>
+            {% for message in messages%}
+            <h5>{{message}}</h5> 
+            {% endfor %}
+        </div>
+
         <button type="submit">Signup</button>
         
         <a href="{% url 'login' %}" >i have already account</a>

@@ -23,12 +23,15 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
 
     # home page
-    path('home/', views.home_view, name='home'),
+    path('', views.home_view, name='home'),
     
     # login pages
     path('login/', views.Login, name='login'),
-    # path('logout/', views.Logout, name='logout'),
     path('signup/', views.Signup, name='signup'),
     path('home2/', views.home_pg, name='pg'),
+    path('logout/', views.Logout, name='logout'),
+
+    # profile page
+    path('profile/<str:pk', views.profile, name='profile')
 
 ]
