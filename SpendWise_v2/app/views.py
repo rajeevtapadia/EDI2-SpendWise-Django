@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirec
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages 
+from django.contrib import messages
 from django.views.decorators.cache import cache_control
 
 
@@ -11,6 +11,7 @@ from django.views.decorators.cache import cache_control
 # put login requried decorator before the view you want to restrict
 def home_view(request, *args, **kwargs):
     return render(request, "index.html", {})
+
 
 def Signup(request):
     if request.method == 'POST':
@@ -32,28 +33,32 @@ def Signup(request):
             return HttpResponseRedirect('/login')
     return render(request, 'signup.html', {})
 
+
 def Login(request):
     if request.method == 'POST':
         username = request.POST.get('usrnm')
         pass1 = request.POST.get('pass')
-        user = authenticate(request, username = username, password = pass1)
+        user = authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            return redirect('/profile/'+username)
+            return redirect('/profile/' + username)
         else:
             messages.info(request, 'Wrong Username or Password')
             return redirect('login')
 
     return render(request, 'login.html', {})
 
+
 @login_required(login_url='login')
 def home_pg(request, *args, **kwargs):
     return render(request, "home.html", {})
+
 
 @login_required(login_url='login')
 def Logout(request):
     logout(request)
     return redirect('home')
+
 
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
