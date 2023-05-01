@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from datetime import datetime
 
 # Create your models here.
 
@@ -16,8 +17,78 @@ class Profile(models.Model):
     
 # create profile when new user signs up
 def create_profile(sender, instance, created, **kwargs):
-      if created:
-            user_profile = Profile(user=instance)
-            user_profile.save()
+    # print(sender, instance, created)
+    if created:
+        user_profile = Profile(user=instance)
+        user_profile.save()
             
 post_save.connect(create_profile, sender=User)
+
+
+# expense model
+class Expense(models.Model):
+    # actual value: human readable name
+		PAYMENT_MODE_CHOICES = [
+			("UPI", "UPI"),
+			("Cash", "Cash"),
+			("DCard", "Debit Card"),
+			("CCard", "Credit Card"),
+		]		
+		CATEGORY_CHOICES = [
+			("food", "Food & Drinks"),
+			("shopping", "Shopping"),
+			("transport", "Transport"),
+			("travel", "Travel"),
+			("entertainment", "Entertainment"),
+			("comm", "Communication"),
+			("meds", "Meds"),
+			("stationary", "Stationary"),
+			("personal", "Personal"),
+			("edun", "Education"),
+			("other", "Other"),
+		]
+		profile = models.ForeignKey(User ,on_delete=models.CASCADE)
+		description = models.CharField(max_length=30, blank=True)
+		amount = models.IntegerField(blank=False)
+		date = models.DateField(default=datetime.now) #doubt??
+		payment_mode = models.CharField(choices=PAYMENT_MODE_CHOICES, blank=False, max_length=6)
+		category = models.CharField(choices=CATEGORY_CHOICES, max_length=15)
+                
+		def __str__(self):
+				return self.description
+                
+		#find out what meta does:??
+		class Meta:
+		    pass
+                
+
+# add expense function
+def addExpense(description, amt, date, mode, cat):
+       exp = Expense(description=description,
+                     amount=amt,
+										 date=date,
+										 payment_mode=mode,
+										 category=cat)
+       exp.save()
+'''
+
+what are the requirements!!??
+fields:
+	description
+  amount
+  date
+  payment mode 
+  category:
+		food & drinks
+    shopping
+    transport
+    travel
+    entertainment
+    communication
+    meds
+    stationary
+    personal
+    education	
+    other
+    
+'''
