@@ -64,5 +64,5 @@ def Logout(request):
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
     # usr = pk
-    return render(request, 'profile.html', {'usr': pk})
+    return render(request, 'dashboard.html', {'usr': pk})
     # return HttpResponse(usr)
