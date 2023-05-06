@@ -3,6 +3,7 @@
 from django import forms
 from datetime import datetime
 from . models import Expense
+from django.db import models
 
 
 class ExpenseForm(forms.Form):
@@ -17,3 +18,12 @@ class ExpenseForm(forms.Form):
                                widget=forms.Select(choices=Expense.CATEGORY_CHOICES),
 															 required=True)
     
+
+class ExpenseFormV2(forms.ModelForm):
+    class Meta:
+        # profile = models.ForeignKey(User, on_delete=models.CASCADE)
+        model = Expense
+        fields = ['description', 'amount', 'date', 'payment_mode', 'category']
+        lables = {'description':'description', 
+                  'amount':'amt', 'date':'date', 'payment_mode':'mode', 'category':'cat'}
+        
