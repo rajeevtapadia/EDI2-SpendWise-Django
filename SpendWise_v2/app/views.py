@@ -4,7 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.cache import cache_control
+from datetime import datetime
 
+from .forms import ExpenseForm
+from .models import Expense
 
 # Create your views here.
 
@@ -63,6 +66,25 @@ def Logout(request):
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
-    # usr = pk
-    return render(request, 'dashboard.html', {'usr': pk})
-    # return HttpResponse(usr)
+    # print(request.method)
+    if request.method == 'POST':
+        form = ExpenseForm(request.POST)
+        # print(form.description)
+        if form.is_valid():
+            print(form.cleaned_data['description'])
+            newExpense = Expense(profile=pk)
+            # newExpense.profile = pk
+            newExpense.description = form.cleaned_data['description']
+            newExpense.amount = form.cleaned_data['amount']
+            # newExpense.date = form.cleaned_data['date']
+            newExpense.payment_mode = form.cleaned_data['mode']
+            newExpense.category = form.cleaned_data['category']
+            newExpense.save()
+            print('expence added successfully')
+    else:
+        form = ExpenseForm()
+
+
+
+    return render(request, 'dashboard.html', {'usr': pk, 'form':form})
+
