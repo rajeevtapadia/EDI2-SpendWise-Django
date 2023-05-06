@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.views.decorators.cache import cache_control
 from datetime import datetime
 
-from .forms import ExpenseForm
+from .forms import ExpenseForm, ExpenseFormV2
 from .models import Expense
 
 # Create your views here.
@@ -66,25 +66,14 @@ def Logout(request):
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
-    # print(request.method)
-    if request.method == 'POST':
-        form = ExpenseForm(request.POST)
-        # print(form.description)
+    print(dir(request.user))
+    if request.method == "POST":
+        form = ExpenseFormV2(request.POST)
+        form.instance.profile = request.user
         if form.is_valid():
-            print(form.cleaned_data['description'])
-            newExpense = Expense(profile=pk)
-            # newExpense.profile = pk
-            newExpense.description = form.cleaned_data['description']
-            newExpense.amount = form.cleaned_data['amount']
-            # newExpense.date = form.cleaned_data['date']
-            newExpense.payment_mode = form.cleaned_data['mode']
-            newExpense.category = form.cleaned_data['category']
-            newExpense.save()
-            print('expence added successfully')
+            form.save()
     else:
-        form = ExpenseForm()
-
-
+      form = ExpenseFormV2()
 
     return render(request, 'dashboard.html', {'usr': pk, 'form':form})
 

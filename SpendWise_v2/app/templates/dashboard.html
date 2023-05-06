@@ -512,6 +512,7 @@
 					<div class="modal-body">
 						<form method="post">
               {% csrf_token %} 
+              <span class="d-none d-md-block dropdown-toggle ps-2">{{usr}}</span>
               {{ form.as_p }}
               <button type="submit" value="submit" class="btn btn-primary">Add</button>
             </form>
