@@ -26,4 +26,10 @@ class ExpenseFormV2(forms.ModelForm):
         fields = ['description', 'amount', 'date', 'payment_mode', 'category']
         lables = {'description':'description', 
                   'amount':'amt', 'date':'date', 'payment_mode':'mode', 'category':'cat'}
+    def __init__(self, *args, **kwargs):
+        super(ExpenseFormV2, self).__init__(*args, **kwargs)
         
+        self.fields['description'].widget.attrs['placeholder'] = 'Description'
+        self.fields['amount'].widget.attrs['placeholder'] = 'Amount'
+        self.fields['date'].widget.attrs['placeholder'] = 'Date'
+        self.fields['payment_mode'].widget.attrs['placeholder'] = 'Mode of Payment'

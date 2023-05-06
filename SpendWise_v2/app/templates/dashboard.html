@@ -36,6 +36,26 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <style>
+    body{
+      background-color: #303132
+    }
+    .card{
+      background-color: #8BBCFF;
+    }
+    .header{
+      background-color: #8BBCFF;
+    }
+    .sidebar{
+      background-color: #8BBCFF;
+    }
+    .nav-item{
+      background-color: #8BBCFF;
+    }
+    .pagetitle > h1{
+      color: white
+    }
+  </style>
 </head>
 
 <body>
@@ -101,9 +121,9 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#" >
-                <i class="bi bi-box-arrow-right"style="display: block;"></i>
-                <span><a href="{% url 'logout' %}" class="btn">Logout</a></span>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
               </a>
             </li>
 
@@ -219,7 +239,7 @@
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
 
-                <div class="filter">
+                <!-- <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -230,7 +250,7 @@
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body">
                   <h5 class="card-title">Expenses <span>| This Month</span></h5>
@@ -254,7 +274,7 @@
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
 
-                <div class="filter">
+                <!-- <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -265,7 +285,7 @@
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body">
                   <h5 class="card-title">Amount Spent <span>| This Month</span></h5>
@@ -290,7 +310,7 @@
 
               <div class="card info-card customers-card">
 
-                <div class="filter">
+                <!-- <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -301,7 +321,7 @@
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div> -->
 
                 <div class="card-body">
                   <h5 class="card-title">Balance <span>| This Month</span></h5>
@@ -510,17 +530,55 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form method="post">
+            <!-- form css -->
+            <style>
+              .djform>div {
+                margin: 15px;
+              }
+              input {
+                display: block;
+                height: 50px;
+                width: 95%;
+                background-color: #b2cffa;
+                border-radius: 3px;
+                padding: 0 10px;
+                margin-top: 8px;
+                font-size: 14px;
+                font-weight: 300;
+              }
+              
+              form {
+                border-radius: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                padding: 0px 35px;
+              }
+              form * {
+                letter-spacing: 0.5px;
+                border: none;
+              }
+              ::placeholder {
+                color: #646363;
+              }
+              div.modal-content{
+                background-color: #8BBCFF;
+              }
+              .modal-header{
+                border-bottom: none;
+              }
+              .modal-footer{
+                border-top: none;
+              }
+            </style>
+
+						<form method="post" class="djform">
               {% csrf_token %} 
-              <span class="d-none d-md-block dropdown-toggle ps-2">{{usr}}</span>
-              {{ form.as_p }}
-              <button type="submit" value="submit" class="btn btn-primary">Add</button>
+              {{ form.as_div }}
+              <div class="modal-footer">
+                <button type="submit" value="submit" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </form>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <input type="submit" value="Submit">
-          </div>
 				</div>
 			</div>
 		</div>

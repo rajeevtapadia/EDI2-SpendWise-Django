@@ -64,37 +64,3 @@ class Expense(models.Model):
     # find out what meta does:??
     class Meta:
         pass
-
-
-# add expense function
-def addExpense(description, amt, date, mode, cat):
-    exp = Expense(description=description,
-                  amount=amt,
-                  date=date,
-                  payment_mode=mode,
-                  category=cat)
-    exp.save()
-
-
-'''
-
-what are the requirements!!??
-fields:
-	description
-  amount
-  date
-  payment mode 
-  category:
-		food & drinks
-    shopping
-    transport
-    travel
-    entertainment
-    communication
-    meds
-    stationary
-    personal
-    education	
-    other
-    
-'''
