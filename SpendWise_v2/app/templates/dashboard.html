@@ -38,22 +38,51 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <style>
     body{
-      background-color: #303132
+      background-color: #1f1f1f
     }
-    .card{
+    .info-card, .card{
+      /* green */
+      /* background-color: #00b698; */
+      /* lavender lite*/
+      background-color: #D4ADFC;
+      /* lavender */
+      /* background-color: #7c5cff; */
+      /* jai bheem */
+      /* background-color: #4154f1; */
+    }
+    .header, .nav-link{
+      background-color: #1B1C1E;
+    }
+    .d-lg-block, .logo span, .dropdown-toggle, .pagetitle>h1{
+      color: white 
+    }
+    .sidebar,  .sidebar-nav, .nav-link.collapsed, .sidebar-nav .nav-link, .sidebar-nav .nav-link.collapsed{
+      background-color: #1c1c1c;
+    }
+    /* .sidebar-nav .nav-link, .sidebar-nav .nav-link.collapsed{
       background-color: #8BBCFF;
+    } */
+    #id_category, #id_payment_mode, #id_date{
+      position: relative;
+      padding: 10px;
+      border: none;
+      outline: none;
+      width: 200px;
+      border-radius: 4px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+      width: 95%;
+      background: #E3DFFD;
+      font-weight: 500;
+      color: black;
     }
-    .header{
-      background-color: #8BBCFF;
+    .modal-title{
+      font-weight: bold;
     }
-    .sidebar{
-      background-color: #8BBCFF;
+    form > div> label{
+      display: none;
     }
-    .nav-item{
-      background-color: #8BBCFF;
-    }
-    .pagetitle > h1{
-      color: white
+    .sidebar-nav .nav-link:hover{
+      background: #D4ADFC;
     }
   </style>
 </head>
@@ -238,20 +267,6 @@
             <!-- Sales Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Expenses <span>| This Month</span></h5>
 
@@ -273,20 +288,6 @@
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Amount Spent <span>| This Month</span></h5>
 
@@ -309,20 +310,6 @@
             <div class="col-xxl-4 col-xl-12">
 
               <div class="card info-card customers-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Balance <span>| This Month</span></h5>
 
@@ -345,20 +332,6 @@
             <!-- Reports -->
             <div class="col-12">
               <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
                 <div class="card-body">
                   <h5 class="card-title">Reports <span>/Today</span></h5>
 
@@ -427,20 +400,6 @@
             <!-- Recent Sales -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
                 <div class="card-body">
                   <h5 class="card-title">Recent Expenses <span>| Today</span></h5>
                   <table class="table table-borderless datatable">
@@ -500,7 +459,6 @@
         </div><!-- End Left side columns -->
       <!-- </div> -->
     </section>
-
   </main><!-- End #main -->
 
   <div>
@@ -539,14 +497,15 @@
                 display: block;
                 height: 50px;
                 width: 95%;
-                background-color: #b2cffa;
+                background-color: #E3DFFD;
                 border-radius: 3px;
                 padding: 0 10px;
                 margin-top: 8px;
                 font-size: 14px;
-                font-weight: 300;
+                font-weight: 500;
+                color: rgb(255, 255, 255);
+                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
               }
-              
               form {
                 border-radius: 10px;
                 border: 2px solid rgba(255, 255, 255, 0.1);
@@ -557,10 +516,11 @@
                 border: none;
               }
               ::placeholder {
-                color: #646363;
+                color: black;
+                font-weight: bold;
               }
               div.modal-content{
-                background-color: #8BBCFF;
+                background-color: #D4ADFC;
               }
               .modal-header{
                 border-bottom: none;
@@ -593,6 +553,13 @@
       Designed by <a href="https://github.com/rajeevtapadia/">Rajeev Tapadia</a>
     </div>
   </footer><!-- End Footer -->
+
+  <script>
+    let dropdownText = document.querySelector('#id_category>option').innerHTML
+    console.log(dropdownText)
+    document.querySelector('div>select>option').innerHTML = 'Select Payment Mode';
+    document.querySelector('#id_category>option').innerHTML = 'Select Category';
+  </script>
 
   <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
 
