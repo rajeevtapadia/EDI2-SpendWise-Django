@@ -66,14 +66,14 @@ def Logout(request):
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
-    # print(dir(request.user))
+    print(Expense.objects.filter(profile=request.user.id))
     if request.method == "POST":
         form = ExpenseFormV2(request.POST)
         form.instance.profile = request.user
         if form.is_valid():
             form.save()
     else:
-      form = ExpenseFormV2()
-
-    return render(request, 'dashboard.html', {'usr': pk, 'form':form})
+        form = ExpenseFormV2()
+    context = {'usr': pk, 'form':form, 'expList':Expense.objects.filter(profile=request.user.id)}
+    return render(request, 'dashboard.html', context)
 
