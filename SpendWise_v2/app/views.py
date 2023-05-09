@@ -66,7 +66,6 @@ def Logout(request):
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
-    print(Expense.objects.filter(profile=request.user.id))
     if request.method == "POST":
         form = ExpenseFormV2(request.POST)
         form.instance.profile = request.user
@@ -74,6 +73,16 @@ def profile(request, pk):
             form.save()
     else:
         form = ExpenseFormV2()
-    context = {'usr': pk, 'form':form, 'expList':Expense.objects.filter(profile=request.user.id)}
+
+    # print('ass', Expense.sum(Expense, 'shopping'), Expense.objects.filter(category='shopping'))
+
+    categorySumList = []
+    for value, name in Expense.CATEGORY_CHOICES:
+        categorySumList.append(Expense.sum(Expense, category=value))
+    print(categorySumList)
+    context = {'usr': pk, 'form':form, 
+               'expList':Expense.objects.filter(profile=request.user.id),
+               'Expense': Expense,
+               'categorySumList':categorySumList,}
     return render(request, 'dashboard.html', context)
 

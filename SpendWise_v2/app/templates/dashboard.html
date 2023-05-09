@@ -17,13 +17,19 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
 
   <!-- Custom css by rajeevt -->
   <link href="{% static 'assets/css/customCss.css' %}" rel="stylesheet">
-  
+
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -37,10 +43,12 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <style>
-    body{
+    body {
       background-color: #1f1f1f
     }
-    .info-card, .card{
+
+    .info-card,
+    .card {
       /* green */
       /* background-color: #00b698; */
       /* lavender lite*/
@@ -50,19 +58,33 @@
       /* jai bheem */
       /* background-color: #4154f1; */
     }
-    .header, .nav-link{
+
+    .header,
+    .nav-link {
       background-color: #1B1C1E;
     }
-    .d-lg-block, .logo span, .dropdown-toggle, .pagetitle>h1{
-      color: white 
+
+    .d-lg-block,
+    .logo span,
+    .dropdown-toggle,
+    .pagetitle>h1 {
+      color: white
     }
-    .sidebar,  .sidebar-nav, .nav-link.collapsed, .sidebar-nav .nav-link, .sidebar-nav .nav-link.collapsed{
+
+    .sidebar,
+    .sidebar-nav,
+    .nav-link.collapsed,
+    .sidebar-nav .nav-link,
+    .sidebar-nav .nav-link.collapsed {
       background-color: #1c1c1c;
     }
+
     /* .sidebar-nav .nav-link, .sidebar-nav .nav-link.collapsed{
       background-color: #8BBCFF;
     } */
-    #id_category, #id_payment_mode, #id_date{
+    #id_category,
+    #id_payment_mode,
+    #id_date {
       position: relative;
       padding: 10px;
       border: none;
@@ -75,20 +97,23 @@
       font-weight: 500;
       color: black;
     }
-    .modal-title{
+
+    .modal-title {
       font-weight: bold;
     }
-    form > div> label{
+
+    form>div>label {
       display: none;
     }
-    .sidebar-nav .nav-link:hover{
+
+    .sidebar-nav .nav-link:hover {
       background: #D4ADFC;
     }
   </style>
 </head>
 
 <body>
-{% csrf_token %}
+  {% csrf_token %}
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -234,16 +259,17 @@
 
   <style>
     @media (min-width: 1200px) {
-      #main{
-          max-width: 1200px;
-          margin-left: 25%;
-          margin-right: 5%;
-        }
-      .toggle-sidebar #main{
+      #main {
+        max-width: 1200px;
+        margin-left: 25%;
+        margin-right: 5%;
+      }
+
+      .toggle-sidebar #main {
         margin-left: auto;
         margin-right: auto;
-        }
       }
+    }
   </style>
   <main id="main" class="main">
     <div class="pagetitle">
@@ -259,189 +285,190 @@
     <section class="section dashboard">
       <!-- <div class="row"> -->
 
-        <!-- Left side columns -->
-        <div>
-          <div class="row">
+      <!-- Left side columns -->
+      <div>
+        <div class="row">
 
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-                <div class="card-body">
-                  <h5 class="card-title">Expenses <span>| This Month</span></h5>
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Expenses <span>| This Month</span></h5>
 
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>45</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-cart"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>45</h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span
+                      class="text-muted small pt-2 ps-1">increase</span>
 
-                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Amount Spent <span>| This Month</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>₹3,264</h6>
+                    <span class="text-success small pt-1 fw-bold">8%</span> <span
+                      class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">Balance <span>| This Month</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>₹7244</h6>
+                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                      class="text-muted small pt-2 ps-1">decrease</span>
+
                   </div>
                 </div>
 
               </div>
-            </div><!-- End Sales Card -->
+            </div>
 
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-                <div class="card-body">
-                  <h5 class="card-title">Amount Spent <span>| This Month</span></h5>
+          </div><!-- End Customers Card -->
 
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Reports <span>/Today</span></h5>
+          
+                <!-- chart test -->
+                <div class="row mt-2">
+                  <div class="col-md-8">
+                    <div>
+                      <canvas id="myChart"></canvas>
                     </div>
-                    <div class="ps-3">
-                      <h6>₹3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+          
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+                    <script>
+                      var ctx = document.getElementById('myChart').getContext('2d');
+                      var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                          labels: [{% for value, name  in Expense.CATEGORY_CHOICES %}  '{{ name }}',  {% endfor %}],
+                      datasets: [{
+                        label: '# of Products',
+                        data: [{% for categorySum in categorySumList %}  {{ categorySum }}, {% endfor %}],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.8)',
+                          'rgba(54, 162, 235, 0.8)',
+                          'rgba(255, 206, 86, 0.8)',
+                          'rgba(75, 192, 192, 0.8)',
+                          'rgba(153, 102, 255, 0.8)',
+                          'rgba(255, 159, 64, 0.8)',
+                          'rgba(240, 120, 50, 0.8)',
+                        ],
+                          borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(240, 120, 50, 1)',
 
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-                <div class="card-body">
-                  <h5 class="card-title">Balance <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>₹7244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
-            <!-- Reports -->
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id="reportsChart"></div>
-
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
+                          ],
+                            borderWidth: 2
+                          }]
+                      },
+                      options: {
+                        scales: {
+                          y: {
+                            beginAtZero: true
                           }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
                         }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
+                      }
+                  });
+                    </script>
+                  </div>
+          
                 </div>
+                <!-- End Line Chart -->
 
               </div>
-            </div><!-- End Reports -->
 
-            <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-                <div class="card-body">
-                  <h5 class="card-title">Recent Expenses <span>| Today</span></h5>
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Sr No.</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Payment Mode</th>
-                        <!-- <th scope="col">Category</th> -->
-                        <!-- <th scope="col">Status</th> -->
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for expense in expList %}
-                      <tr>
-                        <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ expense.description }}</td>
-                        <td>{{ expense.amount }}</td>
-                        <td>{{ expense.payment_mode }}</td>
-                        <!-- <td>{{ expense.category }}</td> -->
-                      </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
+            </div>
+          </div><!-- End Reports -->
 
-                </div>
+          <!-- Recent Sales -->
+          <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+              <div class="card-body">
+                <h5 class="card-title">Recent Expenses <span>| Today</span></h5>
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Sr No.</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Payment Mode</th>
+                      <th scope="col">Category</th>
+                      <!-- <th scope="col">Status</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for expense in expList %}
+                    <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <td>{{ expense.description }}</td>
+                      <td>{{ expense.amount }}</td>
+                      <td>{{ expense.payment_mode }}</td>
+                      <td>{{ expense.category }}</td>
+                      <!-- <td>{{ expense.category }}</td> -->
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
 
               </div>
-            </div><!-- End Recent Sales -->
-          </div>
-        </div><!-- End Left side columns -->
+
+            </div>
+          </div><!-- End Recent Sales -->
+        </div>
+      </div><!-- End Left side columns -->
       <!-- </div> -->
     </section>
   </main><!-- End #main -->
 
   <div>
     <!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
-			+
-		</button>
+    <button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
+      +
+    </button>
     <style>
-      .trigger{
+      .trigger {
         position: fixed;
         bottom: 2%;
         right: 3%;
@@ -451,22 +478,24 @@
       }
     </style>
 
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Add Expense</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Expense</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
             <!-- form css -->
             <style>
               .djform>div {
                 margin: 15px;
               }
+
               input {
                 display: block;
                 height: 50px;
@@ -480,42 +509,48 @@
                 color: rgb(255, 255, 255);
                 box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
               }
+
               form {
                 border-radius: 10px;
                 border: 2px solid rgba(255, 255, 255, 0.1);
                 padding: 0px 35px;
               }
+
               form * {
                 letter-spacing: 0.5px;
                 border: none;
               }
+
               ::placeholder {
                 color: black;
                 font-weight: bold;
               }
-              div.modal-content{
+
+              div.modal-content {
                 background-color: #D4ADFC;
               }
-              .modal-header{
+
+              .modal-header {
                 border-bottom: none;
               }
-              .modal-footer{
+
+              .modal-footer {
                 border-top: none;
               }
             </style>
 
-						<form method="post" class="djform">
-              {% csrf_token %} 
+            <form method="post" class="djform">
+              {% csrf_token %}
               {{ form.as_div }}
               <div class="modal-footer">
                 <button type="submit" value="submit" class="btn btn-primary">Add</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
-					</div>
-				</div>
-			</div>
-		</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ======= Footer ======= -->
@@ -552,9 +587,15 @@
   <script src="{% static 'assets/js/main.js' %}"></script>
 
   <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
 </body>
 

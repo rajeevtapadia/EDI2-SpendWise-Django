@@ -58,6 +58,14 @@ class Expense(models.Model):
     payment_mode = models.CharField(choices=PAYMENT_MODE_CHOICES, blank=False, max_length=6)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=15)
 
+    def sum(self, category):
+        sum = 0
+        print(self.objects.filter(category=category))
+        for expense in self.objects.filter(category=category):
+            sum += expense.amount
+        return sum
+
+
     def __str__(self):
         return self.description
 
