@@ -58,10 +58,9 @@ class Expense(models.Model):
     payment_mode = models.CharField(choices=PAYMENT_MODE_CHOICES, blank=False, max_length=6)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=15)
 
-    def sum(self, category):
+    def sum(self, category, user):
         sum = 0
-        print(self.objects.filter(category=category))
-        for expense in self.objects.filter(category=category):
+        for expense in self.objects.filter(profile=user, category=category):
             sum += expense.amount
         return sum
 

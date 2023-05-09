@@ -26,7 +26,6 @@ def Signup(request):
         if pass1 != pass2:
             messages.info(request, "Password Not Matching")
             return redirect('signup')
-            # return HttpResponse("Passwords don't match please try again")
         elif User.objects.filter(username=username).exists():
             messages.info(request, 'Username already taken')
             return redirect('signup')
@@ -71,18 +70,18 @@ def profile(request, pk):
         form.instance.profile = request.user
         if form.is_valid():
             form.save()
+            return redirect('/profile/' + pk)
     else:
         form = ExpenseFormV2()
 
-    # print('ass', Expense.sum(Expense, 'shopping'), Expense.objects.filter(category='shopping'))
-
     categorySumList = []
     for value, name in Expense.CATEGORY_CHOICES:
-        categorySumList.append(Expense.sum(Expense, category=value))
-    print(categorySumList)
+        categorySumList.append(Expense.sum(Expense, value, request.user))
+
     context = {'usr': pk, 'form':form, 
                'expList':Expense.objects.filter(profile=request.user.id),
                'Expense': Expense,
                'categorySumList':categorySumList,}
+    
     return render(request, 'dashboard.html', context)
 

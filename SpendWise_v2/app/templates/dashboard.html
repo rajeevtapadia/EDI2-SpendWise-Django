@@ -379,7 +379,7 @@
                         data: {
                           labels: [{% for value, name  in Expense.CATEGORY_CHOICES %}  '{{ name }}',  {% endfor %}],
                       datasets: [{
-                        label: '# of Products',
+                        label: 'Expense',
                         data: [{% for categorySum in categorySumList %}  {{ categorySum }}, {% endfor %}],
                         backgroundColor: [
                           'rgba(255, 99, 132, 0.8)',
