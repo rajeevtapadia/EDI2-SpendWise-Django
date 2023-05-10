@@ -1,7 +1,7 @@
 // features to implement
    add add expense button - done
 1. add expense function - done
-2. view expense list
-3. sum and categorywise sum
+2. view expense list - done
+3. sum and categorywise sum - done
 4. edit expense
 

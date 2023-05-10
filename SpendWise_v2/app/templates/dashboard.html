@@ -322,7 +322,7 @@
                     <i class="bi bi-currency-dollar"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>₹3,264</h6>
+                    <h6>₹{{totalAmountSpent}}</h6>
                     <span class="text-success small pt-1 fw-bold">8%</span> <span
                       class="text-muted small pt-2 ps-1">increase</span>
 
@@ -422,7 +422,7 @@
             </div>
           </div><!-- End Reports -->
 
-          <!-- Recent Sales -->
+          <!-- Recent Expenses -->
           <div class="col-12">
             <div class="card recent-sales overflow-auto">
               <div class="card-body">
@@ -455,7 +455,7 @@
               </div>
 
             </div>
-          </div><!-- End Recent Sales -->
+          </div><!-- End Recent Expenses -->
         </div>
       </div><!-- End Left side columns -->
       <!-- </div> -->
@@ -564,8 +564,6 @@
   </footer><!-- End Footer -->
 
   <script>
-    let dropdownText = document.querySelector('#id_category>option').innerHTML
-    console.log(dropdownText)
     document.querySelector('div>select>option').innerHTML = 'Select Payment Mode';
     document.querySelector('#id_category>option').innerHTML = 'Select Category';
   </script>

@@ -60,8 +60,12 @@ class Expense(models.Model):
 
     def sum(self, category, user):
         sum = 0
-        for expense in self.objects.filter(profile=user, category=category):
-            sum += expense.amount
+        if category == 'all':
+            for expense in self.objects.filter(profile=user):
+                sum += expense.amount
+        else:
+            for expense in self.objects.filter(profile=user, category=category):
+                sum += expense.amount
         return sum
 
 

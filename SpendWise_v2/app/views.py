@@ -65,23 +65,31 @@ def Logout(request):
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def profile(request, pk):
+    # code handeling the form submission
     if request.method == "POST":
         form = ExpenseFormV2(request.POST)
         form.instance.profile = request.user
         if form.is_valid():
             form.save()
-            return redirect('/profile/' + pk)
+            # redirecting or else the resubmission problem occurs
+            return redirect('/profile/' + request.user.username)
     else:
+        # code to just display form
         form = ExpenseFormV2()
 
+    # enumarating total expense
+    totalAmountSpent = Expense.sum(Expense, 'all', request.user)
+
+    # enumarating categorywise sum
     categorySumList = []
     for value, name in Expense.CATEGORY_CHOICES:
         categorySumList.append(Expense.sum(Expense, value, request.user))
 
-    context = {'usr': pk, 'form':form, 
+    context = {'usr': request.user.username, 'form':form, 
                'expList':Expense.objects.filter(profile=request.user.id),
                'Expense': Expense,
-               'categorySumList':categorySumList,}
+               'categorySumList':categorySumList,
+               'totalAmountSpent':totalAmountSpent,}
     
     return render(request, 'dashboard.html', context)
 
