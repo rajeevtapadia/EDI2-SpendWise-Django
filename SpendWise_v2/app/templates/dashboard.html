@@ -289,7 +289,7 @@
       <div>
         <div class="row">
 
-          <!-- Sales Card -->
+          <!-- no of expenses Card -->
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
@@ -309,9 +309,9 @@
               </div>
 
             </div>
-          </div><!-- End Sales Card -->
+          </div><!-- no of expenses Card -->
 
-          <!-- Revenue Card -->
+          <!-- amount spent Card -->
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card revenue-card">
               <div class="card-body">
@@ -331,9 +331,9 @@
               </div>
 
             </div>
-          </div><!-- End Revenue Card -->
+          </div><!-- End amount spent Card -->
 
-          <!-- Customers Card -->
+          <!-- balance Card -->
           <div class="col-xxl-4 col-xl-12">
 
             <div class="card info-card customers-card">
@@ -355,9 +355,9 @@
               </div>
             </div>
 
-          </div><!-- End Customers Card -->
+          </div><!-- End balance Card -->
 
-          <!-- Reports -->
+          <!-- category chart -->
           <div class="col-12">
             <div class="card">
               <div class="card-body">
@@ -420,7 +420,7 @@
               </div>
 
             </div>
-          </div><!-- End Reports -->
+          </div><!-- End category chart -->
 
           <!-- Recent Expenses -->
           <div class="col-12">
@@ -435,25 +435,21 @@
                       <th scope="col">Amount</th>
                       <th scope="col">Payment Mode</th>
                       <th scope="col">Category</th>
-                      <!-- <th scope="col">Status</th> -->
                     </tr>
                   </thead>
                   <tbody>
                     {% for expense in expList %}
                     <tr>
                       <th scope="row">{{ forloop.counter }}</th>
-                      <td>{{ expense.description }}</td>
+                      <td><a href="{{usr}}/{{ expense.id }}">{{ expense.description }}</a></td>
                       <td>{{ expense.amount }}</td>
                       <td>{{ expense.payment_mode }}</td>
                       <td>{{ expense.category }}</td>
-                      <!-- <td>{{ expense.category }}</td> -->
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-
               </div>
-
             </div>
           </div><!-- End Recent Expenses -->
         </div>
@@ -463,7 +459,7 @@
   </main><!-- End #main -->
 
   <div>
-    <!-- Button trigger modal -->
+    <!-- add expense Button trigger modal -->
     <button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
       +
     </button>
@@ -478,7 +474,7 @@
       }
     </style>
 
-    <!-- Modal -->
+    <!-- add expense Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -552,6 +548,7 @@
       </div>
     </div>
   </div>
+  <!-- add expense modal end -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

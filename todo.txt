@@ -4,4 +4,8 @@
 2. view expense list - done
 3. sum and categorywise sum - done
 4. edit expense
+5. make the percent increase in cards work
+6. style the graph
 
+known issues:
+1. int the payment_mode column values of categories insted of names is getting printed

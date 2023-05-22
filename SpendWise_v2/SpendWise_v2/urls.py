@@ -32,6 +32,8 @@ urlpatterns = [
     path('logout/', views.Logout, name='logout'),
 
     # profile page
-    path('profile/<str:pk>', views.profile, name='profile')
+    path('profile/<str:pk>', views.profile, name='profile'),
 
+    # edit expense
+    path('profile/<str:pk>/<int:id>', views.editExpView, name='edit'),
 ]

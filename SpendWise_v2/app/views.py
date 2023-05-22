@@ -85,7 +85,8 @@ def profile(request, pk):
     for value, name in Expense.CATEGORY_CHOICES:
         categorySumList.append(Expense.sum(Expense, value, request.user))
 
-    context = {'usr': request.user.username, 'form':form, 
+    context = {'usr': request.user.username,
+               'form':form, 
                'expList':Expense.objects.filter(profile=request.user.id),
                'Expense': Expense,
                'categorySumList':categorySumList,
@@ -93,3 +94,18 @@ def profile(request, pk):
     
     return render(request, 'dashboard.html', context)
 
+
+# edit expense view
+def editExpView(request, pk, id):
+    if request.method == "POST":
+        edit_form = ExpenseFormV2(request.POST)
+        edit_form.instance.profile = request.user
+        if edit_form.is_valid():
+            edit_form.save()
+            # redirecting or else the resubmission problem occurs
+            return redirect('/profile/' + request.user.username)
+    else:
+        # code just to display form with values form database
+        current_expense = Expense.objects.get(id=id)
+        edit_form = ExpenseFormV2(instance = current_expense)
+    return render(request, 'edit.html', {'edit_form':edit_form})
