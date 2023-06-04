@@ -29,7 +29,7 @@
   
 	<!-- Vendor CSS Files -->
 	<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">>
+	<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   
 	<!-- Template Main CSS File -->
 	<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
@@ -115,51 +115,7 @@
 </head>
 <body>
 	<h1>Edit Expense</h1>
-	
-	<div class="card-body">
-		<h5 class="card-title">Recent Expenses <span>| Today</span></h5>
-		<table class="table table-borderless datatable">
-		  <thead>
-			<tr>
-			  <th scope="col">Sr No.</th>
-			  <th scope="col">Description</th>
-			  <th scope="col">Amount</th>
-			  <th scope="col">Payment Mode</th>
-			  <th scope="col">Category</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			
-			<tr>
-			  <th scope="row">1</th>
-			  <td><a data-toggle="modal" data-target="#exampleModalCenter">petrol</a></td>
-			  <td>400</td>
-			  <td>UPI</td>
-			  <td>transport</td>
-			</tr>
-			
-			<tr>
-			  <th scope="row">2</th>
-			  <td><a href="rajeevt/2">asdf</a></td>
-			  <td>6969</td>
-			  <td>UPI</td>
-			  <td>food</td>
-			</tr>
-			
-			<tr>
-			  <th scope="row">3</th>
-			  <td><a href="rajeevt/35">food</a></td>
-			  <td>123</td>
-			  <td>DCard</td>
-			  <td>travel</td>
-			</tr>
-			
-		  </tbody>
-		</table>
-	  </div>
-	
-	
-	
+		
 	<div>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
@@ -207,7 +163,6 @@
 					color: rgb(255, 255, 255);
 					box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 				  }
-	
 				  form {
 					border-radius: 10px;
 					border: 2px solid rgba(255, 255, 255, 0.1);
@@ -235,6 +190,9 @@
 				  .modal-footer {
 					border-top: none;
 				  }
+				  #id_description, #id_amount{
+					color: black;
+				  }
 				</style>
 	
 				<form method="post" class="djform">
@@ -250,5 +208,14 @@
 		  </div>
 		</div>
 	  </div>
+
+	  <!-- script to toggle modal on load -->
+	  <script type="text/javascript">
+			$(window).on('load', function() {
+				$('#exampleModalCenter').modal('show');
+			});
+		</script>
+	
+
 </body>
 </html>
