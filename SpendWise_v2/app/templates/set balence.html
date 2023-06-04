@@ -17,9 +17,6 @@
 	  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
 	  rel="stylesheet">
   
-	<!-- chart.js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
-  
 	<!-- Custom css by rajeevt -->
 	<link href="{% static 'assets/css/customCss.css' %}" rel="stylesheet">
   
@@ -48,159 +45,89 @@
 	  body {
 		background-color: #1f1f1f
 	  }
-  
-	  .info-card,
-	  .card {
-		/* green */
-		/* background-color: #00b698; */
-		/* lavender lite*/
-		background-color: #D4ADFC;
-		/* lavender */
-		/* background-color: #7c5cff; */
-		/* jai bheem */
-		/* background-color: #4154f1; */
-	  }
-  
 	  .header,
 	  .nav-link {
 		background-color: #1B1C1E;
 	  }
-  
-	  .d-lg-block,
-	  .logo span,
-	  .dropdown-toggle,
-	  .pagetitle>h1 {
-		color: white
-	  }
-  
-	  .sidebar,
-	  .sidebar-nav,
-	  .nav-link.collapsed,
-	  .sidebar-nav .nav-link,
-	  .sidebar-nav .nav-link.collapsed {
-		background-color: #1c1c1c;
-	  }
-  
-	  /* .sidebar-nav .nav-link, .sidebar-nav .nav-link.collapsed{
-		background-color: #8BBCFF;
-	  } */
-	  #id_category,
-	  #id_payment_mode,
-	  #id_date {
-		position: relative;
-		padding: 10px;
-		border: none;
-		outline: none;
-		width: 200px;
-		border-radius: 4px;
-		box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-		width: 95%;
-		background: #E3DFFD;
-		font-weight: 500;
-		color: black;
-	  }
-  
 	  .modal-title {
 		font-weight: bold;
-	  }
-  
-	  form>div>label {
-		display: none;
-	  }
-  
-	  .sidebar-nav .nav-link:hover {
-		background: #D4ADFC;
 	  }
 	</style>
 </head>
 <body>		
 	<div>
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
-		  +
-		</button>
-		<style>
-		  .trigger {
-			position: fixed;
-			bottom: 2%;
-			right: 3%;
-			font-size: 2em;
-			border-radius: 50%;
-			width: 62px;
-		  }
-		</style>
-	
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-		  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Set Balence</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				  <span aria-hidden="true">&times;</span>
-				</button>
-			  </div>
-			  <div class="modal-body">
-				<!-- form css -->
-				<style>
-				  .djform>div {
-					margin: 15px;
-				  }
-				  input {
-					display: block;
-					height: 50px;
-					width: 95%;
-					background-color: #E3DFFD;
-					border-radius: 3px;
-					padding: 0 10px;
-					margin-top: 8px;
-					font-size: 14px;
-					font-weight: 500;
-					color: rgb(255, 255, 255);
-					box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-				  }
-				  form {
-					border-radius: 10px;
-					border: 2px solid rgba(255, 255, 255, 0.1);
-					padding: 0px 35px;
-				  }
-				  form * {
-					letter-spacing: 0.5px;
-					border: none;
-				  }
-				  ::placeholder {
-					color: black;
-					font-weight: bold;
-				  }
-				  div.modal-content {
-					background-color: #D4ADFC;
-				  }
-				  .modal-header {
-					border-bottom: none;
-				  }
-				  .modal-footer {
-					border-top: none;
-				  }
-				  #bal{
-					color: black;
-				  }
-				</style>
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Set Balence</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- form css -->
+						<style>
+							.djform>div {
+								margin: 15px;
+							}
+							input {
+								display: block;
+								height: 50px;
+								width: 95%;
+								background-color: #E3DFFD;
+								border-radius: 3px;
+								padding: 0 10px;
+								margin-top: 8px;
+								font-size: 14px;
+								font-weight: 500;
+								color: rgb(255, 255, 255);
+								box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+							}
+							form {
+								border-radius: 10px;
+								border: 2px solid rgba(255, 255, 255, 0.1);
+								padding: 0px 35px;
+							}
+							form * {
+								letter-spacing: 0.5px;
+								border: none;
+							}
+							::placeholder {
+								color: black;
+								font-weight: bold;
+							}
+							div.modal-content {
+								background-color: #D4ADFC;
+							}
+							.modal-header {
+								border-bottom: none;
+							}
+							.modal-footer {
+								border-top: none;
+							}
+							#bal {
+								color: black;
+							}
+						</style>
 	
-				<form method="post" class="djform">
-				  {% csrf_token %}
-				  <input type="number", name="bal", id="bal">
-				  <div class="modal-footer">
-						<button type="submit" value="submit" class="btn btn-primary">Set</button>
-						<button type="button" class="btn btn-secondary" onclick="window.location='/profile/{{usr}}';">Close</button>
-						<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-				  </div>
-				</form>
-			  </div>
+						<form method="post" class="djform">
+							{% csrf_token %}
+							<input type="number" , name="bal" , id="bal" , placeholder="Enter Balance">
+							<div class="modal-footer">
+								<button type="submit" value="submit" class="btn btn-primary">Set</button>
+								<button type="button" class="btn btn-secondary"
+									onclick="window.location='/profile/{{usr}}';">Close</button>
+								<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
-		  </div>
 		</div>
-	  </div>
+	</div>
 
 	  <!-- script to toggle modal on load -->
 	  <script type="text/javascript">
