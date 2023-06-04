@@ -69,8 +69,12 @@ def profile(request, pk):
     if request.method == "POST":
         form = ExpenseFormV2(request.POST)
         form.instance.profile = request.user
+        # updating the balence
+        bal = request.user.profile.balence
         if form.is_valid():
             form.save()
+            request.user.profile.balence = bal - int(request.POST.get('amount'))
+            request.user.profile.save()
             # redirecting or else the resubmission problem occurs
             return redirect('/profile/' + request.user.username)
     else:
@@ -88,12 +92,15 @@ def profile(request, pk):
     for value, name in Expense.CATEGORY_CHOICES:
         categorySumList.append(Expense.sum(Expense, value, request.user))
 
+    # expense list for table
+    expList = Expense.objects.filter(profile=request.user.id)
+
     # balence
     balence = request.user.profile.balence
 
     context = {'usr': request.user.username,
                'form':form, 
-               'expList':Expense.objects.filter(profile=request.user.id),
+               'expList': expList.reverse(),
                'Expense': Expense,
                'categorySumList':categorySumList,
                'totalAmountSpent':totalAmountSpent,
@@ -105,23 +112,43 @@ def profile(request, pk):
 
 # edit expense view
 def editExpView(request, pk, id):
+    current_expense = Expense.objects.get(id=id)
     if request.method == "POST":
+        bal = request.user.profile.balence
+        old_amt = int(current_expense.amount)
+
         if 'delete' in request.POST:
             # Handle delete action
-            current_expense = Expense.objects.get(id=id)
+            # current_expense = Expense.objects.get(id=id)
+            request.user.profile.balence = bal + int(current_expense.amount)
             current_expense.delete()
+            request.user.profile.save()
             return redirect('/profile/' + request.user.username)
         else:
             # Handle edit action
             edit_form = ExpenseFormV2(request.POST)
             edit_form.instance.profile = request.user
             if edit_form.is_valid():
-                current_expense = Expense.objects.get(id=id)
+                # current_expense = Expense.objects.get(id=id)
+                new_amt = int(request.POST.get('amount'))
+                request.user.profile.balence = bal - new_amt + old_amt
                 edit_form = ExpenseFormV2(request.POST, instance=current_expense)
                 edit_form.save()
+                request.user.profile.save()
                 return redirect('/profile/' + request.user.username)
     else:
         # code just to display form with values form database
-        current_expense = Expense.objects.get(id=id)
+        # current_expense = Expense.objects.get(id=id)
         edit_form = ExpenseFormV2(instance=current_expense)
     return render(request, 'edit.html', {'edit_form': edit_form})
+
+# set balence view
+def setBal(request, pk):
+    if request.method == 'POST':
+        input_bal = request.POST.get('bal')
+        if input_bal.isnumeric():
+            request.user.profile.balence = int(input_bal)
+            request.user.profile.save()
+        return redirect('/profile/' + request.user.username)
+    else:
+        return render(request, 'set balence.html', {'usr': request.user.username,})

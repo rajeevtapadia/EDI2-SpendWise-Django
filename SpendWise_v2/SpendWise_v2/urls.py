@@ -36,4 +36,7 @@ urlpatterns = [
 
     # edit expense
     path('profile/<str:pk>/<int:id>', views.editExpView, name='edit'),
+
+    # set balence 
+    path('profile/<str:pk>/bal', views.setBal, name='setBal')
 ]

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Edit Expense</title>
+	<title>Set Balence</title>
 	<!-- Favicons -->
 	<link href="{% static 'assets/img/favicon.png' %}" rel="icon">
 	<link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
@@ -113,9 +113,7 @@
 	  }
 	</style>
 </head>
-<body>
-	<h1>Edit Expense</h1>
-		
+<body>		
 	<div>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary trigger" data-toggle="modal" data-target="#exampleModalCenter">
@@ -138,7 +136,7 @@
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Edit Expense</h5>
+				<h5 class="modal-title" id="exampleModalLongTitle">Set Balence</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -184,22 +182,18 @@
 				  .modal-footer {
 					border-top: none;
 				  }
-				  #id_description, #id_amount{
+				  #bal{
 					color: black;
 				  }
-					.btn-danger{
-						width: auto;
-						height: auto;
-					}
 				</style>
 	
 				<form method="post" class="djform">
 				  {% csrf_token %}
-				  {{ edit_form.as_div }}
+				  <input type="number", name="bal", id="bal">
 				  <div class="modal-footer">
-					<button type="submit" value="submit" class="btn btn-primary">Update</button>
-					<input type="submit" name="delete" value="Delete" class="btn btn-secondary btn-danger">
-					<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+						<button type="submit" value="submit" class="btn btn-primary">Set</button>
+						<button type="button" class="btn btn-secondary" onclick="window.location='/profile/{{usr}}';">Close</button>
+						<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 				  </div>
 				</form>
 			  </div>
@@ -215,6 +209,5 @@
 			});
 		</script>
 	
-
 </body>
 </html>
