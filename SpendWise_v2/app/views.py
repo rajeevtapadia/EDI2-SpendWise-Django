@@ -101,6 +101,8 @@ def editExpView(request, pk, id):
         edit_form = ExpenseFormV2(request.POST)
         edit_form.instance.profile = request.user
         if edit_form.is_valid():
+            current_expense = Expense.objects.get(id=id)
+            edit_form = ExpenseFormV2(request.POST, instance = current_expense)
             edit_form.save()
             # redirecting or else the resubmission problem occurs
             return redirect('/profile/' + request.user.username)
