@@ -3,7 +3,8 @@
 1. add expense function - done
 2. view expense list - done
 3. sum and categorywise sum - done
-4. edit expense
+4. edit expense - done
+   set balance feature
 5. make the percent increase in cards work
 6. style the graph
 

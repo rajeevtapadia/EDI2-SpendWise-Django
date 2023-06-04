@@ -80,24 +80,30 @@ def profile(request, pk):
     # enumarating total expense
     totalAmountSpent = Expense.sum(Expense, 'all', request.user)
 
+    # enumarating number of expenses
+    noOfExp = Expense.objects.count() - 3
+
     # enumarating categorywise sum
     categorySumList = []
     for value, name in Expense.CATEGORY_CHOICES:
         categorySumList.append(Expense.sum(Expense, value, request.user))
+
+    # balence
+    balence = request.user.profile.balence
 
     context = {'usr': request.user.username,
                'form':form, 
                'expList':Expense.objects.filter(profile=request.user.id),
                'Expense': Expense,
                'categorySumList':categorySumList,
-               'totalAmountSpent':totalAmountSpent,}
+               'totalAmountSpent':totalAmountSpent,
+               'noOfExp':noOfExp,
+               'balence':balence,}
     
     return render(request, 'dashboard.html', context)
 
 
 # edit expense view
-from django.shortcuts import render, redirect
-
 def editExpView(request, pk, id):
     if request.method == "POST":
         if 'delete' in request.POST:

@@ -9,7 +9,7 @@ from datetime import datetime
 # create a user profile model
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+    balence = models.IntegerField(blank=False, default=0)
     # follows = models.ManyToManyField('self',
     # related_name='followed_by',
     # symmetrical=False,
@@ -75,3 +75,7 @@ class Expense(models.Model):
     # find out what meta does:??
     class Meta:
         pass
+
+# # model for balence
+# class Balence(models.Model):
+#     balence = models.IntegerField(blank=False, default=0)
