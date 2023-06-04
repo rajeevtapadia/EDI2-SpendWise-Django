@@ -149,7 +149,6 @@
 				  .djform>div {
 					margin: 15px;
 				  }
-	
 				  input {
 					display: block;
 					height: 50px;
@@ -168,31 +167,30 @@
 					border: 2px solid rgba(255, 255, 255, 0.1);
 					padding: 0px 35px;
 				  }
-	
 				  form * {
 					letter-spacing: 0.5px;
 					border: none;
 				  }
-	
 				  ::placeholder {
 					color: black;
 					font-weight: bold;
 				  }
-	
 				  div.modal-content {
 					background-color: #D4ADFC;
 				  }
-	
 				  .modal-header {
 					border-bottom: none;
 				  }
-	
 				  .modal-footer {
 					border-top: none;
 				  }
 				  #id_description, #id_amount{
 					color: black;
 				  }
+					.btn-danger{
+						width: auto;
+						height: auto;
+					}
 				</style>
 	
 				<form method="post" class="djform">
@@ -200,7 +198,8 @@
 				  {{ edit_form.as_div }}
 				  <div class="modal-footer">
 					<button type="submit" value="submit" class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<input type="submit" name="delete" value="Delete" class="btn btn-secondary btn-danger">
+					<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 				  </div>
 				</form>
 			  </div>

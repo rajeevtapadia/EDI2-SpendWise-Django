@@ -96,18 +96,26 @@ def profile(request, pk):
 
 
 # edit expense view
+from django.shortcuts import render, redirect
+
 def editExpView(request, pk, id):
     if request.method == "POST":
-        edit_form = ExpenseFormV2(request.POST)
-        edit_form.instance.profile = request.user
-        if edit_form.is_valid():
+        if 'delete' in request.POST:
+            # Handle delete action
             current_expense = Expense.objects.get(id=id)
-            edit_form = ExpenseFormV2(request.POST, instance = current_expense)
-            edit_form.save()
-            # redirecting or else the resubmission problem occurs
+            current_expense.delete()
             return redirect('/profile/' + request.user.username)
+        else:
+            # Handle edit action
+            edit_form = ExpenseFormV2(request.POST)
+            edit_form.instance.profile = request.user
+            if edit_form.is_valid():
+                current_expense = Expense.objects.get(id=id)
+                edit_form = ExpenseFormV2(request.POST, instance=current_expense)
+                edit_form.save()
+                return redirect('/profile/' + request.user.username)
     else:
         # code just to display form with values form database
         current_expense = Expense.objects.get(id=id)
-        edit_form = ExpenseFormV2(instance = current_expense)
-    return render(request, 'edit.html', {'edit_form':edit_form})
+        edit_form = ExpenseFormV2(instance=current_expense)
+    return render(request, 'edit.html', {'edit_form': edit_form})
