@@ -39,17 +39,17 @@ class Expense(models.Model):
         ("CCard", "Credit Card"),
     ]
     CATEGORY_CHOICES = [
-        ("food", "Food & Drinks"),
-        ("shopping", "Shopping"),
-        ("transport", "Transport"),
-        ("travel", "Travel"),
-        ("entertainment", "Entertainment"),
-        ("comm", "Communication"),
-        ("meds", "Meds"),
-        ("stationary", "Stationary"),
-        ("personal", "Personal"),
-        ("edun", "Education"),
-        ("other", "Other"),
+        ("Food & Drinks", "Food & Drinks"),
+        ("Shopping", "Shopping"),
+        ("Transport", "Transport"),
+        ("Travel", "Travel"),
+        ("Entertainment", "Entertainment"),
+        ("Communication", "Communication"),
+        ("Meds", "Meds"),
+        ("Stationary", "Stationary"),
+        ("Personal", "Personal"),
+        ("Education", "Education"),
+        ("Other", "Other"),
     ]
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=30, blank=True)

@@ -85,7 +85,8 @@ def profile(request, pk):
     totalAmountSpent = Expense.sum(Expense, 'all', request.user)
 
     # enumarating number of expenses
-    noOfExp = Expense.objects.count() - 3
+    noOfExp = Expense.objects.filter(profile=request.user.id).count()
+    print(noOfExp)
 
     # enumarating categorywise sum
     categorySumList = []
