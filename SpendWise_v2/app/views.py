@@ -86,7 +86,6 @@ def profile(request, pk):
 
     # enumarating number of expenses
     noOfExp = Expense.objects.filter(profile=request.user.id).count()
-    print(noOfExp)
 
     # enumarating categorywise sum
     categorySumList = []
@@ -94,14 +93,14 @@ def profile(request, pk):
         categorySumList.append(Expense.sum(Expense, value, request.user))
 
     # expense list for table
-    expList = Expense.objects.filter(profile=request.user.id)
+    expList = Expense.objects.filter(profile=request.user.id).order_by('-date', '-id')
 
     # balence
     balence = request.user.profile.balence
 
     context = {'usr': request.user.username,
                'form':form, 
-               'expList': expList.reverse(),
+               'expList': expList,
                'Expense': Expense,
                'categorySumList':categorySumList,
                'totalAmountSpent':totalAmountSpent,
