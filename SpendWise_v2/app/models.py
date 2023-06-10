@@ -10,17 +10,12 @@ from datetime import datetime
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     balence = models.IntegerField(blank=False, default=0)
-    # follows = models.ManyToManyField('self',
-    # related_name='followed_by',
-    # symmetrical=False,
-    # blank=True)
     def __str__(self):
         return self.user.username
 
 
 # create profile when new user signs up
 def create_profile(sender, instance, created, **kwargs):
-    # print(sender, instance, created)
     if created:
         user_profile = Profile(user=instance)
         user_profile.save()
@@ -75,7 +70,3 @@ class Expense(models.Model):
     # find out what meta does:??
     class Meta:
         pass
-
-# # model for balence
-# class Balence(models.Model):
-#     balence = models.IntegerField(blank=False, default=0)
