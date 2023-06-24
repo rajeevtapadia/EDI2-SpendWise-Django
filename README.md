@@ -31,3 +31,5 @@ To get started with the SpendWise web app locally, follow these steps:
 6. Start the development server: `python manage.py runserver`
 7. Access the web app in your browser at `http://localhost:8000`
 
+OR visit https://rajeevtapadia.pythonanywhere.com/
+
