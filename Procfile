@@ -1,0 +1,1 @@
+web gunicorn SpendWise_v2.wsgi.application --log-file -
