@@ -171,7 +171,7 @@
 
 						<form method="post" class="djform">
 							{% csrf_token %}
-							{{ edit_form.as_div }}
+							{{ edit_form.as_p}}
 							<div class="modal-footer">
 								<button type="submit" value="submit" class="btn btn-primary">Update</button>
 								<input type="submit" name="delete" value="Delete" class="btn btn-secondary btn-danger">

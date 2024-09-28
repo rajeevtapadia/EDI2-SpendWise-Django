@@ -453,7 +453,7 @@
 
             <form method="post" class="djform">
               {% csrf_token %}
-              {{ form.as_div }}
+              {{ form.as_p }}
               <div class="modal-footer">
                 <button type="submit" value="submit" class="btn btn-primary">Add</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -471,9 +471,6 @@
     <!-- <div class="copyright">
       &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
     </div> -->
-    <div class="credits" style="color:#627597">
-      Designed by <a href="https://github.com/rajeevtapadia/">Rajeev Tapadia</a>
-    </div>
   </footer><!-- End Footer -->
 
   <script>
